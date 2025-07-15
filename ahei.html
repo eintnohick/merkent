@@ -601,7 +601,6 @@
     </style>
 </head>
 <body>
-    <button class="grid-toggle" onclick="toggleGrid()">TOGGLE GRID</button>
     <div class="layout-grid" id="layoutGrid"></div>
     
     <!-- Navigation -->
@@ -752,11 +751,6 @@
     </div>
 
     <script>
-        function toggleGrid() {
-            const grid = document.getElementById('layoutGrid');
-            grid.classList.toggle('active');
-        }
-
         // Mobile menu toggle
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
