@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHEI - Wireframe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: white;
+            border-bottom: 2px solid #e9ecef;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 40px;
+            background: #6c757d;
+            border: 2px solid #495057;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            padding: 10px 15px;
+            border: 2px solid #dee2e6;
+            background: white;
+            color: #495057;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+        }
+        
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #495057;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: white;
+            border: 2px solid #dee2e6;
+            margin: 30px 0;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: 'HERO SECTION';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 12px;
+            color: #6c757d;
+            font-weight: bold;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #212529;
+            border: 2px dashed #dee2e6;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .hero .tagline {
+            font-size: 1.4rem;
+            color: #6c757d;
+            margin-bottom: 30px;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            background: white;
+        }
+        
+        .hero .mission {
+            font-size: 1.1rem;
+            color: #495057;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border: 2px solid #495057;
+            background: white;
+            color: #495057;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            min-width: 150px;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: #495057;
+            color: white;
+        }
+        
+        .btn:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+        }
+        
+        .btn-primary:hover {
+            background: #6c757d;
+        }
+        
+        /* Section Headers */
+        .section {
+            margin: 60px 0;
+        }
+        
+        .section-header {
+            background: white;
+            border: 2px solid #dee2e6;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-header::before {
+            content: 'SECTION HEADER';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 10px;
+            color: #6c757d;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: #212529;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border: 2px solid #dee2e6;
+            padding: 30px;
+            position: relative;
+            min-height: 250px;
+        }
+        
+        .card::before {
+            content: 'CARD';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 10px;
+            color: #6c757d;
+            font-weight: bold;
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: #e9ecef;
+            border: 2px solid #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #212529;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 10px;
+        }
+        
+        .card p {
+            color: #495057;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .card ul {
+            margin-left: 20px;
+            color: #495057;
+        }
+        
+        .card li {
+            margin-bottom: 8px;
+        }
+        
+        /* Feature Section */
+        .feature-section {
+            background: white;
+            border: 3px solid #495057;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .feature-section::before {
+            content: 'FEATURE SECTION';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 10px;
+            color: #495057;
+            font-weight: bold;
+        }
+        
+        .feature-section h2 {
+            font-size: 2rem;
+            color: #212529;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 2px dashed #dee2e6;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+        
+        .feature-highlight {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .feature-highlight::before {
+            content: 'CONTENT BLOCK';
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 10px;
+            color: #6c757d;
+        }
+        
+        .feature-highlight h3 {
+            color: #212529;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .feature-highlight p {
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        
+        /* Success Stories */
+        .success-stories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .story-card {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            padding: 20px;
+            position: relative;
+            min-height: 120px;
+        }
+        
+        .story-card::before {
+            content: 'STORY';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 10px;
+            color: #6c757d;
+            font-weight: bold;
+        }
+        
+        .story-card h4 {
+            color: #212529;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .story-card p {
+            color: #495057;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: #495057;
+            color: white;
+            text-align: center;
+            padding: 50px 40px;
+            margin: 40px 0;
+            border: 3px solid #212529;
+            position: relative;
+        }
+        
+        .cta-section::before {
+            content: 'CALL TO ACTION';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 10px;
+            color: #adb5bd;
+            font-weight: bold;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border: 2px dashed #6c757d;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            border: 1px solid #6c757d;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-section .btn {
+            background: white;
+            color: #495057;
+            border: 2px solid white;
+        }
+        
+        .cta-section .btn:hover {
+            background: #f8f9fa;
+        }
+        
+        /* Footer */
+        .footer {
+            background: white;
+            border: 2px solid #dee2e6;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: 'FOOTER';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 10px;
+            color: #6c757d;
+            font-weight: bold;
+        }
+        
+        .footer p {
+            color: #495057;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+        
+        .footer a {
+            color: #495057;
+            text-decoration: underline;
+        }
+        
+        /* Annotations */
+        .annotation {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .annotation::after {
+            content: attr(data-note);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #495057;
+            color: white;
+            padding: 5px 10px;
+            font-size: 10px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        
+        .annotation:hover::after {
+            opacity: 1;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-section {
+                padding: 30px 20px;
+            }
+            
+            .cta-section {
+                padding: 40px 20px;
+            }
+            
+            .footer {
+                padding: 30px 20px;
+            }
+            
+            .success-stories {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .feature-section {
+                padding: 20px 15px;
+            }
+            
+            .cta-section {
+                padding: 30px 15px;
+            }
+        }
+        
+        /* Layout Grid Overlay (for wireframe visualization) */
+        .layout-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .layout-grid.active {
+            opacity: 1;
+        }
+        
+        .layout-grid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1200px;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(rgba(255, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 100px 20px;
+        }
+        
+        .grid-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #495057;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 1001;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <button class="grid-toggle" onclick="toggleGrid()">TOGGLE GRID</button>
+    <div class="layout-grid" id="layoutGrid"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">LOGO</a>
+                <ul class="nav-links">
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#support">Support</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Alliance Health Education Initiative</h1>
+            <div class="tagline">Supporting Healthy Communities Through Education</div>
+            <div class="mission">
+                We provide grants to community-based organizations delivering health education programs that address critical health issues in our communities.
+            </div>
+            <div class="hero-buttons">
+                <a href="#support" class="btn btn-primary">Support Our Mission</a>
+                <a href="#programs" class="btn">Apply for Grant</a>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="feature-section" id="events">
+            <h2>Latest News & Events</h2>
+            <div class="feature-highlight">
+                <h3>AHEI & AMA Alliance 2025 Annual Meeting</h3>
+                <p>We recently had a great time at our annual meeting! Thank you to all who attended and supported our mission.</p>
+            </div>
+            <div class="feature-highlight">
+                <h3>Physician Family Day - August 30, 2025</h3>
+                <p>Join us in celebrating our physician families and their contributions to community health.</p>
+            </div>
+            <div class="feature-highlight">
+                <h3>NEW: Online Marketplace Launch!</h3>
+                <p>We've launched our first-ever online marketplace featuring customizable greeting cards.</p>
+                <a href="http://www.zazzle.com/store/givingwithahei" class="btn">Visit Our Store</a>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="section" id="mission">
+            <div class="section-header">
+                <h2 class="section-title">Our Impact Areas</h2>
+                <p class="section-subtitle">We focus on critical health issues that affect communities nationwide</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Our Mission</h3>
+                    <p>AHEI takes the initiative to provide grants to community-based organizations delivering health education programs and projects.</p>
+                    <p><strong>We focus on critical issues including:</strong></p>
+                    <ul>
+                        <li>The opioid epidemic</li>
+                        <li>Social determinants of health</li>
+                        <li>Food insecurity</li>
+                        <li>Healthcare workforce mental and physical well-being</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3>Grant Focus</h3>
+                    <p><strong>Supporting Small Nonprofits:</strong> Small nonprofits are often overlooked in the grant-making space. We aim to change that narrative.</p>
+                    <p>We believe in granting meaningfully to create lasting impact.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">💝</div>
+                    <h3>Spread the LOVE Campaign</h3>
+                    <p>Our signature campaign continues to grow! With a donation of $25 or more, AHEI will rush Love Postcards to you.</p>
+                    <p><strong>Now expanded to include:</strong></p>
+                    <ul>
+                        <li>Customizable greeting cards</li>
+                        <li>Organization logo options</li>
+                        <li>Special message customization</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>How to Get Involved</h3>
+                    <p>There are many ways to support AHEI's mission:</p>
+                    <ul>
+                        <li>Attend our exciting events throughout the year</li>
+                        <li>Make a donation in honor or memory of someone special</li>
+                        <li>Purchase items from our online marketplace</li>
+                        <li>Participate in our Spread the LOVE campaign</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories Section -->
+        <section class="section" id="impact">
+            <div class="section-header">
+                <h2 class="section-title">Success Stories</h2>
+                <p class="section-subtitle">Here are some of the amazing projects we've supported</p>
+            </div>
+            <div class="success-stories">
+                <div class="story-card">
+                    <h4>Victim Services Crisis Card Project</h4>
+                    <p>Kalamazoo Area Medical Alliance, Michigan (2020) - Supporting crisis intervention through educational materials</p>
+                </div>
+                <div class="story-card">
+                    <h4>Girls Light Our Way (GLOW) Try-Athlon</h4>
+                    <p>Peoria, Illinois (2020) - Empowering young women through health and wellness education</p>
+                </div>
+                <div class="story-card">
+                    <h4>Creativity Kits for Kids</h4>
+                    <p>Greenville County Medical Society Alliance, South Carolina (2021) - Supporting children's mental health</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" id="support">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Your support is greatly valued and helps us continue our vital work in communities across the nation.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn">Donate Now</a>
+                <a href="#" class="btn">Apply for Grant</a>
+                <a href="http://www.zazzle.com/store/givingwithahei" class="btn">Shop Our Store</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" id="contact">
+            <p><strong>Have you received an AHEI grant?</strong> We want to feature you on our website!</p>
+            <p>Send photos of your programs and projects to: <a href="mailto:communications@ahei.org">communications@ahei.org</a></p>
+            <p>© 2025 Alliance Health Education Initiative. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleGrid() {
+            const grid = document.getElementById('layoutGrid');
+            grid.classList.toggle('active');
+        }
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
